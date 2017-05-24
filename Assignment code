@@ -1,0 +1,66 @@
+import java.util.*;
+
+public class SubStringClass {
+
+	static boolean flag;
+	
+	public static void main(String s[]){
+		System.out.println("Hello, please type any part of the sentence'Hello World!'");
+		subString.contains("hello world!");//assigns the default sentence to "Hello World!"
+		if (flag){
+	    	System.out.println("Congratulations, substring found!");//prints if flag= true
+	    }
+        else if (!flag){
+        	System.out.println("Sorry, substring not found");//prints if flag = false
+        }
+	}
+	
+}
+
+class subString extends SubStringClass{
+	
+	static Scanner sc = new Scanner(System.in);
+	static String userInput;
+
+	
+	
+	 public static boolean contains(String main){
+		    flag=false;
+		    userInput = sc.next().toLowerCase();
+		    if(main==null && main.trim().equals("")){
+		        return flag;//if the main string is = null
+		    }
+		    if(userInput==null){
+		        return flag;//if user doesn't type anything, then flag = false
+		    }
+
+		    char fullstring[]=main.toCharArray();
+		    char sub[]=userInput.toCharArray();//converts both strings to arrays
+		    int counter=0;
+		    if(sub.length==0){
+		        flag=true;
+		        return flag;
+		    }
+
+		    for(int i=0;i<fullstring.length;i++){
+
+		        if(fullstring[i]==sub[counter]){
+		            counter++;
+		        }else{
+		        	if(counter > 0){ 
+		        		i -= counter; 
+		        	} //this part checks if any letters are equal 
+		        }
+
+		        if(counter==sub.length){
+		        flag=true;
+		        return flag;//confirms if they are equal
+
+		        }
+		        
+		    }
+		    return flag;
+		    
+		}
+	
+}
